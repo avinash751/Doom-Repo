@@ -1024,6 +1024,10 @@ PrefabInstance:
       propertyPath: m_ReferencePixelsPerUnit
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1489581692496836712, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3045543354215482787, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1066,6 +1070,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3045543354215482787, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544023080652413068, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047994890510548203, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
+      propertyPath: isAutomaticShooting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047994890510548203, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
+      propertyPath: isAutomaticReloading
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047994890510548203, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
+      propertyPath: bulletsToShootPerClick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047994890510548203, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
+      propertyPath: timeBetweenEachBulletShot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047994890510548203, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
+      propertyPath: allowToShootMultipleBulletsAtOnce
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6617625619889349029, guid: 09e8612ab6498bb49b1876783f723e07, type: 3}
