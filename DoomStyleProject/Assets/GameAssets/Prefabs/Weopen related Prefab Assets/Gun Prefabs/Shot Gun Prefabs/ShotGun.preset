@@ -6,7 +6,7 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PistolGun
+  m_Name: ShotGun
   m_TargetType:
     m_NativeTypeID: 114
     m_ManagedTypePPtr: {fileID: 11500000, guid: 20b8dacabbecd1341b08e462523aae94, type: 3}
@@ -26,19 +26,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: timeBetweenInputShooting
-    value: 0.2
+    value: 0.4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: gunBulletRange
-    value: 15
+    value: 10
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: bulletSpread
-    value: 0.05
+    value: 0.1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: gunMagazineSize
-    value: 12
+    value: 40
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: isAutomaticShooting
@@ -50,7 +50,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: timeForReload
-    value: 1.2
+    value: 1.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: isAutomaticReloading
@@ -58,15 +58,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allowToShootMultipleBulletsAtOnce
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: timeBetweenEachBulletShot
-    value: 0
+    value: 0.015
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: bulletsToShootPerClick
-    value: 0
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allowInputToShoot
@@ -95,7 +95,7 @@ Preset:
   - target: {fileID: 0}
     propertyPath: shootAnimation
     value: 
-    objectReference: {fileID: 7400000, guid: d34b4dd27ff9e5942b1871319d0f0db7, type: 2}
+    objectReference: {fileID: 7400000, guid: 94d3613c7536338479f31509ec3dd76e, type: 2}
   - target: {fileID: 0}
     propertyPath: gunMuzzleFlash
     value: 

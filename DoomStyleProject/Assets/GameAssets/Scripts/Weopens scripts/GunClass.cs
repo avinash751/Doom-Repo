@@ -31,7 +31,6 @@ public class GunClass : MonoBehaviour
 
 
     [Header("Refrences")]
-    [SerializeField] Transform gunMuzzlePoint;
     [SerializeField] Animator gunAnimator;
     Ray bulletRay;
     RaycastHit objectHit;
@@ -74,7 +73,7 @@ public class GunClass : MonoBehaviour
             StartShootingProcess();
             PlayGunAnimation(shootAnimation);
             PlayGunVfx(gunMuzzleFlash);
-
+            PlayAGunSoundAndChangePitch(shootSound, 0.75f, 1.3f);
         }
 
         if(Input.GetKeyDown(KeyCode.Mouse0) && !allowInputToShoot && bulletsLeftInMagazine <= 0 )
@@ -95,11 +94,9 @@ public class GunClass : MonoBehaviour
         bulletsLeftInMagazine--;
         ShootRaycast();
         ShootMultipleBulletsAtOnceIfRequired();
-
-        PlayAGunSoundAndChangePitch(shootSound, 0.75f, 1.3f);
-
-        SpawnGunEffectThendestroy(FurnitureBulletImpactDecal, effectDestroyTimer, true);
-        SpawnGunEffectThendestroy(normalBulletimpactVfx.gameObject, effectDestroyTimer, false);
+        // bullets effects that spawn only after bullets are shot 
+        SpawnGunEffectAtRayNormalThendestroy(FurnitureBulletImpactDecal, effectDestroyTimer, true);
+        SpawnGunEffectAtRayNormalThendestroy(normalBulletimpactVfx.gameObject, effectDestroyTimer, false);
     }
     void ShootMultipleBulletsAtOnceIfRequired()
     {
@@ -135,7 +132,8 @@ public class GunClass : MonoBehaviour
         // this makes sure if all bullets not shot then dont allow player to shoot, this prevents losing more bullets than required
         if (bulletsShotSoFar < 5 && bulletsShotSoFar != 0)
         {
-            Invoke(nameof(EnableInputToShoot), timeBetweenInputShooting);
+            // this makes sure that you can shoot again if all bullsts are shot
+            Invoke(nameof(EnableInputToShoot), timeBetweenInputShooting); 
             return;
         }
         allowInputToShoot = true;
@@ -169,7 +167,6 @@ public class GunClass : MonoBehaviour
         if(bulletsLeftInMagazine<=0) allowInputToShoot = false;
     }
 
-
     // Helper functions for spawning , playing or destroying gun effects
 
     void PlayGunAnimation(AnimationClip clip)
@@ -182,7 +179,7 @@ public class GunClass : MonoBehaviour
         gunVfx.Play();
     }
 
-    void SpawnGunEffectThendestroy(GameObject effect, float timer, bool parenting)
+    void SpawnGunEffectAtRayNormalThendestroy(GameObject effect, float timer, bool parenting)
     {
         if (objectHit.collider == null) return;
         var decalDuplicate = Instantiate(effect, objectHit.point, Quaternion.LookRotation(objectHit.normal));
@@ -199,7 +196,6 @@ public class GunClass : MonoBehaviour
         source.pitch = Random.Range(minPitch, maxPitch);
         source.Play();
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

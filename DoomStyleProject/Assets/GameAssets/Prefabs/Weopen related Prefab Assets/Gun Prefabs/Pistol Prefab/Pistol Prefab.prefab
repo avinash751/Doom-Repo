@@ -147,11 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -414,8 +414,8 @@ MonoBehaviour:
   gunMagazineSize: 12
   isAutomaticShooting: 0
   allowedToReload: 1
-  timeForReload: 2
-  isAutomaticReloading: 1
+  timeForReload: 1.2
+  isAutomaticReloading: 0
   allowToShootMultipleBulletsAtOnce: 0
   timeBetweenEachBulletShot: 0
   bulletsToShootPerClick: 0
@@ -424,7 +424,6 @@ MonoBehaviour:
   bulletsLeftInMagazine: 0
   nameOfObjectHit: 
   bulletsShotSoFar: 0
-  gunMuzzlePoint: {fileID: 5044458484614931503}
   gunAnimator: {fileID: 6840474039229695031}
   shootAnimation: {fileID: 7400000, guid: d34b4dd27ff9e5942b1871319d0f0db7, type: 2}
   gunMuzzleFlash: {fileID: 8668273299836638432}
@@ -602,8 +601,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c9bb4171cafd3dd47829336ea4c8d988, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: adb50ee3869229b449ffb0a0058963f4, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -823,7 +822,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.59
   m_Pitch: 1
   Loop: 0
