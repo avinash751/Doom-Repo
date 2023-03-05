@@ -1949,6 +1949,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9149448062382711043}
   - component: {fileID: 9149448062382711044}
+  - component: {fileID: 9120420296448676744}
+  - component: {fileID: 3992195873690589933}
   m_Layer: 0
   m_Name: GlockPistol
   m_TagString: Untagged
@@ -2011,6 +2013,32 @@ MonoBehaviour:
   shootSound: {fileID: 9149448061780574137}
   reloadSound: {fileID: 9149448060884707217}
   denyShootSound: {fileID: 9149448061743300941}
+--- !u!65 &9120420296448676744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149448062382711042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3992195873690589933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149448062382711042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0699ddabc734049a482b358ac475bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasPickedUp: 0
 --- !u!1 &9149448062609724412
 GameObject:
   m_ObjectHideFlags: 0
