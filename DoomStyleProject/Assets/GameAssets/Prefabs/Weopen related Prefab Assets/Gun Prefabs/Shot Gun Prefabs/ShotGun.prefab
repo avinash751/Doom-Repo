@@ -759,6 +759,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4066162242082339358}
   - component: {fileID: 4066162242082339329}
+  - component: {fileID: 4945814433756024946}
+  - component: {fileID: 3205219455875551841}
   m_Layer: 0
   m_Name: ShotGun
   m_TagString: Untagged
@@ -820,6 +822,32 @@ MonoBehaviour:
   shootSound: {fileID: 4066162243694131294}
   reloadSound: {fileID: 4066162243615170643}
   denyShootSound: {fileID: 4066162242991965304}
+--- !u!114 &4945814433756024946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4066162242082339328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0699ddabc734049a482b358ac475bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasPickedUp: 0
+--- !u!65 &3205219455875551841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4066162242082339328}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2.05}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4066162242189578512
 GameObject:
   m_ObjectHideFlags: 0
