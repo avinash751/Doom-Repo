@@ -31,8 +31,7 @@ public class GunClass : MonoBehaviour
 
 
     [Header("Refrences")]
-    [SerializeField] Transform gunMuzzlePoint;
-    [SerializeField]Animator gunAnimator;
+    [SerializeField] Animator gunAnimator;
     Ray bulletRay;
     RaycastHit objectHit;
 
@@ -41,54 +40,69 @@ public class GunClass : MonoBehaviour
     [SerializeField] AnimationClip shootAnimation;
 
 
-    [Header("weopen effects")]
+    [Header("Weopen effects")]
     [SerializeField] ParticleSystem gunMuzzleFlash;
     [SerializeField] ParticleSystem normalBulletimpactVfx;
     [SerializeField] GameObject FurnitureBulletImpactDecal;
     [SerializeField] float effectDestroyTimer;
 
+    [Header("Gun Sounds")]
+    [SerializeField] AudioSource shootSound;
+    [SerializeField] AudioSource reloadSound;
+    [SerializeField] AudioSource denyShootSound;
+
 
     private void Start()
     {
-       ReloadAmmoToGunMagazine();
-      
+        ReloadAmmoToGunMagazine();
+
     }
     private void Update()
     {
         CheckWhetherToReloadAmmo();
+        DisableShootingWhenAmmoZero();
         CheckGunInputToStartShooting();
     }
 
     void CheckGunInputToStartShooting()
     {
-        bool shootingInput = isAutomaticShooting? Input.GetKey(KeyCode.Mouse0): Input.GetKeyDown(KeyCode.Mouse0);
-        if(shootingInput && allowInputToShoot && bulletsLeftInMagazine>0 && !isReloading)
+        bool shootingInput = isAutomaticShooting ? Input.GetKey(KeyCode.Mouse0) : Input.GetKeyDown(KeyCode.Mouse0);
+        
+        if (shootingInput && allowInputToShoot && bulletsLeftInMagazine > 0 && !isReloading)
         {
             StartShootingProcess();
             PlayGunAnimation(shootAnimation);
             PlayGunVfx(gunMuzzleFlash);
-            SpawnGunEffectThendestroy(FurnitureBulletImpactDecal, effectDestroyTimer,true);
-            SpawnGunEffectThendestroy(normalBulletimpactVfx.gameObject, effectDestroyTimer,false);
+            PlayAGunSoundAndChangePitch(shootSound, 0.75f, 1.3f);
         }
+
+        if(Input.GetKeyDown(KeyCode.Mouse0) && !allowInputToShoot && bulletsLeftInMagazine <= 0 )
+        {
+            PlayAGunSoundAndChangePitch(denyShootSound, 0.9f, 1.2f);
+        }   
     }
 
     void StartShootingProcess()
     {
-        bulletsShotSoFar = allowToShootMultipleBulletsAtOnce ? bulletsToShootPerClick : 0; // to shoot multiple bullets at once , gun like shot gun or burst rifles
+        bulletsShotSoFar = allowToShootMultipleBulletsAtOnce ? bulletsToShootPerClick : 0; // to shoot multiple bullets at once ,  like shot gun or burst rifles
         allowInputToShoot = false;
         shootBullet();
-        Invoke(nameof(EnableInputToShoot),timeBetweenInputShooting);  
+        Invoke(nameof(EnableInputToShoot), timeBetweenInputShooting);
     }
     void shootBullet()
     {
         bulletsLeftInMagazine--;
         ShootRaycast();
         ShootMultipleBulletsAtOnceIfRequired();
+        // bullets effects that spawn only after bullets are shot 
+        SpawnGunEffectAtRayNormalThendestroy(FurnitureBulletImpactDecal, effectDestroyTimer, true);
+        SpawnGunEffectAtRayNormalThendestroy(normalBulletimpactVfx.gameObject, effectDestroyTimer, false);
     }
     void ShootMultipleBulletsAtOnceIfRequired()
     {
-        if (!allowToShootMultipleBulletsAtOnce ) return;
+        if (!allowToShootMultipleBulletsAtOnce) return;
         bulletsShotSoFar--;
+        // check to make sure it does keep shooting mulriple bullets at once
         if (bulletsShotSoFar <= 0 || bulletsLeftInMagazine <= 0) return;
         Invoke(nameof(shootBullet), timeBetweenEachBulletShot);
     }
@@ -97,12 +111,12 @@ public class GunClass : MonoBehaviour
     {
         Vector3 perShotBulletSpread = GetBulletSpreadDirection();
         Vector3 bulletDirection = Camera.main.transform.forward + perShotBulletSpread;
-        bulletRay = new Ray(Camera.main.transform.position,bulletDirection);
+        bulletRay = new Ray(Camera.main.transform.position, bulletDirection);
 
-        if(Physics.Raycast(bulletRay,out objectHit, gunBulletRange))
+        if (Physics.Raycast(bulletRay, out objectHit, gunBulletRange))
         {
             nameOfObjectHit = objectHit.collider.name;
-            Debug.DrawRay(Camera.main.transform.position,bulletDirection*gunBulletRange,Color.green,10f);
+            Debug.DrawRay(Camera.main.transform.position, bulletDirection * gunBulletRange, Color.green, 10f);
         }
     }
 
@@ -115,9 +129,12 @@ public class GunClass : MonoBehaviour
 
     void EnableInputToShoot()
     {
-        if (bulletsShotSoFar < 5 && bulletsShotSoFar!=0)
-        { Invoke(nameof(EnableInputToShoot), timeBetweenInputShooting);
-          return;
+        // this makes sure if all bullets not shot then dont allow player to shoot, this prevents losing more bullets than required
+        if (bulletsShotSoFar < 5 && bulletsShotSoFar != 0)
+        {
+            // this makes sure that you can shoot again if all bullsts are shot
+            Invoke(nameof(EnableInputToShoot), timeBetweenInputShooting); 
+            return;
         }
         allowInputToShoot = true;
     }
@@ -126,12 +143,14 @@ public class GunClass : MonoBehaviour
     {
         if (!allowedToReload) return;
 
+        // whether to reload manualy or automaticly
         bool reloadingInput = isAutomaticReloading ? true : Input.GetKeyDown(KeyCode.R);
 
-        if(reloadingInput && bulletsLeftInMagazine<=0 && !isReloading)
+        if (reloadingInput && bulletsLeftInMagazine <= 0 && !isReloading)
         {
-            allowInputToShoot=false;
-            isReloading=true;
+            allowInputToShoot = false;
+            isReloading = true;
+            PlayAGunSoundAndChangePitch(reloadSound, 0.8f, 1.4f);
             Invoke(nameof(ReloadAmmoToGunMagazine), timeForReload);
         }
     }
@@ -143,6 +162,10 @@ public class GunClass : MonoBehaviour
         bulletsLeftInMagazine = gunMagazineSize;
     }
 
+    void DisableShootingWhenAmmoZero()
+    {
+        if(bulletsLeftInMagazine<=0) allowInputToShoot = false;
+    }
 
     // Helper functions for spawning , playing or destroying gun effects
 
@@ -156,18 +179,23 @@ public class GunClass : MonoBehaviour
         gunVfx.Play();
     }
 
-    void SpawnGunEffectThendestroy(GameObject effect, float timer, bool parenting)
+    void SpawnGunEffectAtRayNormalThendestroy(GameObject effect, float timer, bool parenting)
     {
-        if(objectHit.collider==null) return;
+        if (objectHit.collider == null) return;
         var decalDuplicate = Instantiate(effect, objectHit.point, Quaternion.LookRotation(objectHit.normal));
         Vector3 decalOffset = decalDuplicate.transform.forward / 1000;
         decalDuplicate.transform.position += decalOffset;
 
-        decalDuplicate.transform.parent =  parenting ?objectHit.collider.transform : null;
-        Destroy(decalDuplicate,timer);
+        decalDuplicate.transform.parent = parenting ? objectHit.collider.transform : null;
+        Destroy(decalDuplicate, timer);
     }
- 
 
+    void PlayAGunSoundAndChangePitch(AudioSource source, float minPitch, float maxPitch)
+    {
+        if (source == null) return;
+        source.pitch = Random.Range(minPitch, maxPitch);
+        source.Play();
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
