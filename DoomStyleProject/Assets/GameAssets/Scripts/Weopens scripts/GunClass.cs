@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,7 +22,7 @@ public class GunClass : MonoBehaviour
 
 
     [Header("Debug Stats, DO NOT CHNAGE")]
-    [SerializeField] bool allowInputToShoot = true;
+    [SerializeField] bool allowInputToShoot;
     [SerializeField] bool isReloading;
     [SerializeField] int bulletsLeftInMagazine;
     [SerializeField] string nameOfObjectHit;
@@ -41,6 +40,7 @@ public class GunClass : MonoBehaviour
 
 
     [Header("Weopen effects")]
+    [SerializeField] GameObject gunCrossAir;
     [SerializeField] ParticleSystem gunMuzzleFlash;
     [SerializeField] ParticleSystem normalBulletimpactVfx;
     [SerializeField] GameObject FurnitureBulletImpactDecal;
@@ -52,10 +52,27 @@ public class GunClass : MonoBehaviour
     [SerializeField] AudioSource denyShootSound;
 
 
+    public bool AllowInputToShoot
+    {
+        get
+        {
+            return allowInputToShoot;
+        }
+
+        set
+        {
+            allowInputToShoot = value;
+            // cross air is disabled if shooting input is false else it will be enabled
+            if (allowInputToShoot) { gunCrossAir?.SetActive(true); } 
+            else { gunCrossAir?.SetActive(false); }
+        }
+    }
+
+
     private void Start()
     {
         ReloadAmmoToGunMagazine();
-
+        AllowInputToShoot = false;
     }
     private void Update()
     {
@@ -67,7 +84,7 @@ public class GunClass : MonoBehaviour
     void CheckGunInputToStartShooting()
     {
         bool shootingInput = isAutomaticShooting ? Input.GetKey(KeyCode.Mouse0) : Input.GetKeyDown(KeyCode.Mouse0);
-        
+
         if (shootingInput && allowInputToShoot && bulletsLeftInMagazine > 0 && !isReloading)
         {
             StartShootingProcess();
@@ -76,10 +93,10 @@ public class GunClass : MonoBehaviour
             PlayAGunSoundAndChangePitch(shootSound, 0.75f, 1.3f);
         }
 
-        if(Input.GetKeyDown(KeyCode.Mouse0) && !allowInputToShoot && bulletsLeftInMagazine <= 0 )
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !allowInputToShoot && bulletsLeftInMagazine <= 0)
         {
             PlayAGunSoundAndChangePitch(denyShootSound, 0.9f, 1.2f);
-        }   
+        }
     }
 
     void StartShootingProcess()
@@ -133,7 +150,7 @@ public class GunClass : MonoBehaviour
         if (bulletsShotSoFar < 5 && bulletsShotSoFar != 0)
         {
             // this makes sure that you can shoot again if all bullsts are shot
-            Invoke(nameof(EnableInputToShoot), timeBetweenInputShooting); 
+            Invoke(nameof(EnableInputToShoot), timeBetweenInputShooting);
             return;
         }
         allowInputToShoot = true;
@@ -164,7 +181,7 @@ public class GunClass : MonoBehaviour
 
     void DisableShootingWhenAmmoZero()
     {
-        if(bulletsLeftInMagazine<=0) allowInputToShoot = false;
+        if (bulletsLeftInMagazine <= 0) allowInputToShoot = false;
     }
 
     // Helper functions for spawning , playing or destroying gun effects
