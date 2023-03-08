@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 6720589735339737697}
   - component: {fileID: 561632459}
   - component: {fileID: 7753337220354908877}
+  - component: {fileID: 1935195324}
   m_Layer: 0
   m_Name: PlayerFPS
   m_TagString: Player
@@ -492,6 +493,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527998a2153e9c14db873946159cc1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1935195324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74496650478700096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19024942773cae448e5f4e3faff8324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: {fileID: 11400000, guid: fa617a2dfa832dd4bb38f0cf8a9d1d14, type: 2}
+  currentHealth: 0
+  damageTakenSound: {fileID: 0}
+  addMoreFunctionalityWhenDamageTaken: 0
+  OnDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1738098494414438237
 GameObject:
   m_ObjectHideFlags: 0
