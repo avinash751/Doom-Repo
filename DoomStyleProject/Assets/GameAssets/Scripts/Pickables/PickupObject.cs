@@ -10,6 +10,9 @@ public class PickupObject : MonoBehaviour
     [SerializeField] List<GameObject> equipList = new List<GameObject>();
     [SerializeField] Vector3 gunOffset;
     int currentWeapon;
+
+    [SerializeField] AudioSource weopenPickUpAudioSource;
+    [SerializeField] AudioSource consumablePickUpAudioSource;
     private void Start()
     {
         if (equipList.Count > 0)
@@ -61,17 +64,22 @@ public class PickupObject : MonoBehaviour
         Weapon gun = weapon as Weapon;
         if (weapon != null && !gun.hasPickedUp)
         {
-            weapon.PickedUpEquipment(equipTransform.position, gun.hasPickedUp = true, parent);
+            weapon.PickedUpEquipment(equipTransform.position, gun.hasPickedUp = true, parent,weopenPickUpAudioSource);
             equipList.Add(gun.gameObject);
             SwitchWeapons(equipList.Count - 1);
             equipList[currentWeapon].transform.localRotation = Quaternion.Euler(Vector3.zero);
             equipList[currentWeapon].transform.localPosition = gunOffset;
+           
         }
 
         IConsumable consumeItem = other.GetComponent<IConsumable>();
         if (consumeItem != null)
         {
-            consumeItem.Consume(0.2f);
+            consumeItem.Consume(0.2f,consumablePickUpAudioSource);
+          
         }
     }
+
+
+  
 }

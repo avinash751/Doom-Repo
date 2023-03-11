@@ -2006,6 +2006,7 @@ MonoBehaviour:
   bulletsShotSoFar: 0
   gunAnimator: {fileID: 9149448061601259925}
   shootAnimation: {fileID: 7400000, guid: d34b4dd27ff9e5942b1871319d0f0db7, type: 2}
+  gunCrossAir: {fileID: 9149448061117772828}
   gunMuzzleFlash: {fileID: 8951080440369279624}
   normalBulletimpactVfx: {fileID: 3719586107335905490, guid: e9c663ddd4e4808408b70cc6c5e1003d, type: 3}
   FurnitureBulletImpactDecal: {fileID: 2840573034989318555, guid: ef79d918259ab5f4692977f135697d28, type: 3}
@@ -2039,6 +2040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasPickedUp: 0
+  gunPickUpSoundClip: {fileID: 8300000, guid: e11a5a019377fbd4c81caa0adcb4c236, type: 3}
 --- !u!1 &9149448062609724412
 GameObject:
   m_ObjectHideFlags: 0

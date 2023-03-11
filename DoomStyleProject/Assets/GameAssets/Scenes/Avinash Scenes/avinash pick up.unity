@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &56632461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9149448061117772828, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
-  m_PrefabInstance: {fileID: 1440150184}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &391326230
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699913d6044564a408438859376a9914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consumablePickUpSoundClip: {fileID: 0}
 --- !u!1 &986567856
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasPickedUp: 0
+  gunPickUpSoundClip: {fileID: 0}
 --- !u!65 &986567858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -567,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasPickedUp: 0
+  gunPickUpSoundClip: {fileID: 0}
 --- !u!65 &1239435265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -756,9 +754,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9149448062382711044, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
-      propertyPath: gunCrossAir
-      value: 
-      objectReference: {fileID: 56632461}
+      propertyPath: allowedToReload
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
 --- !u!1001 &1476563614
@@ -927,3 +925,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasPickedUp: 0
+  gunPickUpSoundClip: {fileID: 0}

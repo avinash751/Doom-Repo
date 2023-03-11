@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IConsumable 
 {
-    public void Consume(float destroyTimer);
+    public void Consume(float destroyTimer,AudioSource source);
 }

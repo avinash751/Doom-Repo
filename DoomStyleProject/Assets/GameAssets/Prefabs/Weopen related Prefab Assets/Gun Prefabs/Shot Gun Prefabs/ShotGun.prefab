@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasPickedUp: 0
+  gunPickUpSoundClip: {fileID: 8300000, guid: bb2e2714f962491428dcb0b38598b251, type: 3}
 --- !u!65 &3205219455875551841
 BoxCollider:
   m_ObjectHideFlags: 0

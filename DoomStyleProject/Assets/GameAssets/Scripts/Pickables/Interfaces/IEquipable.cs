@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IEquipable
 {
-    void PickedUpEquipment(Vector3 weaponPosition, bool hasPickedUp, Transform parent);
+    void PickedUpEquipment(Vector3 weaponPosition, bool hasPickedUp, Transform parent,AudioSource source);
 }
