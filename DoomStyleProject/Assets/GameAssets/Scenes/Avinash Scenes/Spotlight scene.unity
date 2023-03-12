@@ -192,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 2021314956785430231, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
       propertyPath: spotlight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1898056879}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
 --- !u!114 &152096387 stripped
@@ -385,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 2021314956785430231, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
       propertyPath: spotlight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1898056879}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
 --- !u!1 &1532023845
@@ -610,9 +610,14 @@ PrefabInstance:
     - target: {fileID: 2021314956785430231, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
       propertyPath: spotlight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1898056879}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
+--- !u!108 &1898056879 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2021314956785430229, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
+  m_PrefabInstance: {fileID: 2021314956669083732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &672790240931189626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,6 +625,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 672790239754468972, guid: bb5dbf1ac54368b4897e01cf15d1f97b, type: 3}
+      propertyPath: enableSotlightsOnStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 672790239754468972, guid: bb5dbf1ac54368b4897e01cf15d1f97b, type: 3}
       propertyPath: spotlightArray.Array.data[0]
       value: 
@@ -744,6 +753,6 @@ PrefabInstance:
     - target: {fileID: 2021314956785430231, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
       propertyPath: spotlight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1898056879}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 159cdb347320b9f4492ae68794326ef8, type: 3}
