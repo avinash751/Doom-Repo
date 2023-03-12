@@ -31,8 +31,9 @@ public class EnableArrayOfSpotlightsThroughAnEvent : MonoBehaviour
     {
         for (int i = 0; i < spotlightArray.Length; i++)
         {
-            spotlightArray[i].EnableSpotlightAndPlaySound();
             yield return new WaitForSeconds(delayTime);
+            spotlightArray[i].EnableSpotlightAndPlaySound();
+            
         }
     }
 

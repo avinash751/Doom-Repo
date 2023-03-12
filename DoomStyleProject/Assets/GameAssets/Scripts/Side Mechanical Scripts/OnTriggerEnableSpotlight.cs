@@ -6,13 +6,18 @@ public class OnTriggerEnableSpotlight : MonoBehaviour
     private AudioSource spotlightSound;
     bool playOnce;
 
-
-    void Start()
+    private void Awake()
     {
-        spotlight = GetComponent<Light>() ?? spotlight;
+        spotlight =  GetComponent<Light>();
         spotlightSound = GetComponent<AudioSource>();
+      
+    }
+
+    private void Start()
+    {
         spotlight.enabled = false;
     }
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -27,6 +32,7 @@ public class OnTriggerEnableSpotlight : MonoBehaviour
         if (playOnce) return;
         spotlight.enabled = true;
         spotlightSound.pitch = Random.Range(0.9f, 1.2f);
+        playOnce = true;
         spotlightSound?.Play();
     }
 
