@@ -8,9 +8,16 @@ public class PickupObject : MonoBehaviour
     [SerializeField] Transform parent;
 
     [SerializeField] List<GameObject> equipList = new List<GameObject>();
-    [SerializeField] Vector3 gunOffset;
+
+    bool weaponActive = false;
+
+    [Header("Weapon Offsets")]
+    [SerializeField] Vector3 pistolOffset;
+    [SerializeField] Vector3 shotgunOffset;
+
     int currentWeapon;
 
+    [Header("Audio sources")]
     [SerializeField] AudioSource weopenPickUpAudioSource;
     [SerializeField] AudioSource consumablePickUpAudioSource;
     private void Start()
@@ -35,6 +42,7 @@ public class PickupObject : MonoBehaviour
         {
             SwitchWeapons(2);
         }
+        WeaponOffset();
     }
 
     void SwitchWeapons(int number)
@@ -58,18 +66,29 @@ public class PickupObject : MonoBehaviour
             }
         }
     }
+    void WeaponOffset()
+    {
+        if (currentWeapon == 0 && weaponActive)
+        {
+            equipList[currentWeapon].transform.localPosition = pistolOffset;
+        }
+        if (currentWeapon == 1 && weaponActive)
+        {
+            equipList[currentWeapon].transform.localPosition = shotgunOffset;
+        }
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         IEquipable weapon = other.GetComponent<IEquipable>();
         Weapon gun = weapon as Weapon;
         if (weapon != null && !gun.hasPickedUp)
         {
-            weapon.PickedUpEquipment(equipTransform.position, gun.hasPickedUp = true, parent,weopenPickUpAudioSource);
+            weapon.PickedUpEquipment(equipTransform.position, gun.hasPickedUp = true, parent, weopenPickUpAudioSource);
             equipList.Add(gun.gameObject);
             SwitchWeapons(equipList.Count - 1);
+            weaponActive = true;
             equipList[currentWeapon].transform.localRotation = Quaternion.Euler(Vector3.zero);
-            equipList[currentWeapon].transform.localPosition = gunOffset;
-           
         }
 
         IConsumable consumeItem = other.GetComponent<IConsumable>();
@@ -79,7 +98,4 @@ public class PickupObject : MonoBehaviour
           
         }
     }
-
-
-  
 }
