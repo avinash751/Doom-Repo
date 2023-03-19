@@ -9,6 +9,7 @@ public class DoSomthingOnCollsion : MonoBehaviour
     [SerializeField] bool isTrigger;
     [SerializeField] bool onlyPlayOnce;
     [SerializeField] string tag;
+    [SerializeField] float delayToPlayEvent;
     [SerializeField] UnityEvent DoSomethingOnCollisionOrTrigger;
     bool played;
    
@@ -39,9 +40,15 @@ public class DoSomthingOnCollsion : MonoBehaviour
         if (collisionCondition)
         {
             played = true;
-            DoSomethingOnCollisionOrTrigger?.Invoke();
+            Invoke(nameof(RunUnityEventAfterDelay),delayToPlayEvent);
+           
         }
 
         
+    }
+
+    void RunUnityEventAfterDelay()
+    {
+        DoSomethingOnCollisionOrTrigger?.Invoke();
     }
 }
