@@ -7,7 +7,7 @@ public class GunClass : MonoBehaviour
     [SerializeField] float timeBetweenInputShooting;
     [SerializeField] float gunBulletRange;
     [SerializeField] float bulletSpread;
-    [SerializeField] int gunMagazineSize;
+    [SerializeField] public int gunMagazineSize;
     [SerializeField] bool isAutomaticShooting;
 
     [Header("Gun Reloading Stats")]
@@ -22,9 +22,9 @@ public class GunClass : MonoBehaviour
 
 
     [Header("Debug Stats, DO NOT CHNAGE")]
-    [SerializeField] bool allowInputToShoot;
+    [SerializeField] public bool allowInputToShoot;
     [SerializeField] bool isReloading;
-    [SerializeField] int bulletsLeftInMagazine;
+    [SerializeField] public int bulletsLeftInMagazine;
     [SerializeField] string nameOfObjectHit;
     [SerializeField] int bulletsShotSoFar;
 

@@ -7,7 +7,7 @@ public class PickupObject : MonoBehaviour
     [SerializeField] Transform equipTransform;
     [SerializeField] Transform parent;
 
-    [SerializeField] List<GameObject> equipList = new List<GameObject>();
+    [SerializeField] public List<GameObject> equipList = new List<GameObject>();
 
     bool weaponActive = false;
 
@@ -15,7 +15,7 @@ public class PickupObject : MonoBehaviour
     [SerializeField] Vector3 pistolOffset;
     [SerializeField] Vector3 shotgunOffset;
 
-    int currentWeapon;
+    [HideInInspector]public int currentWeapon;
 
     [Header("Audio sources")]
     [SerializeField] AudioSource weopenPickUpAudioSource;
@@ -94,8 +94,7 @@ public class PickupObject : MonoBehaviour
         IConsumable consumeItem = other.GetComponent<IConsumable>();
         if (consumeItem != null)
         {
-            consumeItem.Consume(0.2f,consumablePickUpAudioSource);
-          
+            consumeItem.Consume(0f,consumablePickUpAudioSource);
         }
     }
 }

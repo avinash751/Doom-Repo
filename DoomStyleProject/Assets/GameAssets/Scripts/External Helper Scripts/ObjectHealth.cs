@@ -8,7 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 public class ObjectHealth : MonoBehaviour,IDamagable,IDestroyable
 {
     public Value  MaxHealth;
-    public float currentHealth;
+    public int currentHealth;
     [SerializeField] AudioSource damageTakenSound;
     public  bool addMoreFunctionalityWhenDamageTaken;
     public UnityEvent OnDamageTaken;

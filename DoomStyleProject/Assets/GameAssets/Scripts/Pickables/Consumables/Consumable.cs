@@ -5,7 +5,7 @@ using UnityEngine;
 public class Consumable : MonoBehaviour, IConsumable
 {
     [SerializeField] AudioClip consumablePickUpSoundClip;
-    public void Consume(float destroyTimer, AudioSource source)
+    public virtual void Consume(float destroyTimer, AudioSource source)
     {
         Destroy(gameObject, destroyTimer);
         PlayAudioPickUpsound(source, consumablePickUpSoundClip);
