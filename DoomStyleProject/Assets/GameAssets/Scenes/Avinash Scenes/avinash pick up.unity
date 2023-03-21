@@ -714,6 +714,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2087260669, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087260669, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+      propertyPath: m_FillMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087260669, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 74496650478700096, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
       propertyPath: m_Name
       value: PlayerFPS

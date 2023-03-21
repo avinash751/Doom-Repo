@@ -10,8 +10,6 @@ public class AmmoBar : VisulaBar
     [SerializeField] GameObject[] weopenimageList;
     [SerializeField] TextMeshProUGUI ammotext;
     
-
-
     public  override void  Start()
     {
         base.Start();
@@ -19,18 +17,23 @@ public class AmmoBar : VisulaBar
         DisableAllWeopenImagesWhenNoWeopensPickedUp();
         SubscribeToNecessaryEventsAtStart(); 
     }
+    /// <summary>
+    /// this will make sure that whenever a gun is shot or switched the ammo bar will take the correct weopen values and update other ammo bar values at the right time .
+    /// </summary>
     void SubscribeToNecessaryEventsAtStart()
     {
         weopenPickUp.WeopenHasBeenSwitched += SetNewCurrentValueAndMaxValueAndUpdateBar;
-        weopenPickUp.newWeopenHasbeenEquipped += GetReferenceOfCurrentGunWhenWeopenSwitchedAndSwitchWeopenImage;
+        weopenPickUp.newWeopenHasbeenEquipped += GetReferenceOfCurrentGunWhenWeopenSwitched_And_UpdateOtherAmmoBarValues;
         weopenPickUp.newWeopenHasbeenEquipped += UpdateAmmoTextAndColor;
     }
 
-    void GetReferenceOfCurrentGunWhenWeopenSwitchedAndSwitchWeopenImage()
+    void GetReferenceOfCurrentGunWhenWeopenSwitched_And_UpdateOtherAmmoBarValues()
     {
         GunClass currentWeopen = weopenPickUp.equipList[weopenPickUp.currentWeapon].GetComponent<GunClass>();
+
         currentWeopen.currentAmmoHasBeenChanged += DecreaseCircularBarValue;
         currentWeopen.currentAmmoHasBeenChanged += UpdateAmmoTextAndColor;
+
         UpdateCurrentWeopenImageWhenAWeopenSwitched();
     }
 
