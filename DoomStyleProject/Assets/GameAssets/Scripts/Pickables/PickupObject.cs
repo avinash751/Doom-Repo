@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PickupObject : MonoBehaviour
 {
@@ -15,11 +16,14 @@ public class PickupObject : MonoBehaviour
     [SerializeField] Vector3 pistolOffset;
     [SerializeField] Vector3 shotgunOffset;
 
-    [HideInInspector]public int currentWeapon;
+    [HideInInspector] public int currentWeapon;
 
     [Header("Audio sources")]
     [SerializeField] AudioSource weopenPickUpAudioSource;
     [SerializeField] AudioSource consumablePickUpAudioSource;
+
+    public Action<float, float> WeopenHasBeenSwitched;
+    public Action newWeopenHasbeenEquipped;
     private void Start()
     {
         if (equipList.Count > 0)
@@ -58,7 +62,13 @@ public class PickupObject : MonoBehaviour
         {
             if (i == number)
             {
+                GunClass newCurrentWeopen = equipList[i].GetComponent<GunClass>();
                 equipList[i].SetActive(true);
+
+                // this provides the ammo bar its new current and max values so it updates to the correct weopen
+                WeopenHasBeenSwitched?.Invoke(newCurrentWeopen.CurrentAmmo, newCurrentWeopen.gunMagazineSize);
+                // this provides the refrence of the gun to ammo bar so it can update whenever the weopen is shooting
+                newWeopenHasbeenEquipped?.Invoke();
             }
             else
             {
@@ -94,7 +104,7 @@ public class PickupObject : MonoBehaviour
         IConsumable consumeItem = other.GetComponent<IConsumable>();
         if (consumeItem != null)
         {
-            consumeItem.Consume(0f,consumablePickUpAudioSource);
+            consumeItem.Consume(0f, consumablePickUpAudioSource);
         }
     }
 }

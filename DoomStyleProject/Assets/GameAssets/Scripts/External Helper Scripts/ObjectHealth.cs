@@ -57,7 +57,7 @@ public class ObjectHealthEditor : Editor
         EditorGUI.BeginChangeCheck();
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("MaxHealth"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("currentHealth"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("currentValue"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("damageTakenSound"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("addMoreFunctionalityWhenDamageTaken"));
 
