@@ -76,7 +76,6 @@ public class PickupObject : MonoBehaviour
         {
             equipList[currentWeapon].transform.localPosition = shotgunOffset;
         }
-
     }
     private void OnTriggerEnter(Collider other)
     {
