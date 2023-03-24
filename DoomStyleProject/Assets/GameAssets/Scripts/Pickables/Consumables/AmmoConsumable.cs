@@ -19,9 +19,9 @@ public class AmmoConsumable : Consumable
     void AddAmmoToGun()
     {
         GunClass currenEquippedGun = player.equipList[player.currentWeapon].GetComponent<GunClass>();
-        currenEquippedGun.bulletsLeftInMagazine += ammoToAdd;
+        currenEquippedGun.CurrentAmmo += ammoToAdd;
         currenEquippedGun.allowInputToShoot = true;
-        currenEquippedGun.bulletsLeftInMagazine = Mathf.Clamp(currenEquippedGun.bulletsLeftInMagazine, 0, currenEquippedGun.gunMagazineSize);
+        currenEquippedGun.CurrentAmmo = Mathf.Clamp(currenEquippedGun.CurrentAmmo, 0, currenEquippedGun.gunMagazineSize);
         Debug.Log("Picked up some ammo");
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using Random = UnityEngine.Random;
 
 public class GunClass : MonoBehaviour
@@ -24,7 +25,7 @@ public class GunClass : MonoBehaviour
     [Header("Debug Stats, DO NOT CHNAGE")]
     [SerializeField] public bool allowInputToShoot;
     [SerializeField] bool isReloading;
-    [SerializeField] public int bulletsLeftInMagazine;
+    [SerializeField]  int bulletsLeftInMagazine;
     [SerializeField] string nameOfObjectHit;
     [SerializeField] int bulletsShotSoFar;
 
@@ -51,7 +52,18 @@ public class GunClass : MonoBehaviour
     [SerializeField] AudioSource reloadSound;
     [SerializeField] AudioSource denyShootSound;
 
+    public Action<int> currentAmmoHasBeenChanged;
 
+    public int CurrentAmmo
+    {
+        get { return bulletsLeftInMagazine; }
+
+        set
+        {
+            bulletsLeftInMagazine = value;
+            currentAmmoHasBeenChanged?.Invoke(bulletsLeftInMagazine);
+        }
+    }
     public bool AllowInputToShoot
     {
         get
@@ -63,7 +75,7 @@ public class GunClass : MonoBehaviour
         {
             allowInputToShoot = value;
             // cross air is disabled if shooting input is false else it will be enabled
-            if (allowInputToShoot) { gunCrossAir?.SetActive(true); } 
+            if (allowInputToShoot) { gunCrossAir?.SetActive(true); }
             else { gunCrossAir?.SetActive(false); }
         }
     }
@@ -108,7 +120,7 @@ public class GunClass : MonoBehaviour
     }
     void shootBullet()
     {
-        bulletsLeftInMagazine--;
+        CurrentAmmo--;
         ShootRaycast();
         ShootMultipleBulletsAtOnceIfRequired();
         // bullets effects that spawn only after bullets are shot 
@@ -118,7 +130,7 @@ public class GunClass : MonoBehaviour
     void ShootMultipleBulletsAtOnceIfRequired()
     {
         if (!allowToShootMultipleBulletsAtOnce) return;
-        bulletsShotSoFar--;
+        bulletsShotSoFar-=1;
         // check to make sure it does keep shooting mulriple bullets at once
         if (bulletsShotSoFar <= 0 || bulletsLeftInMagazine <= 0) return;
         Invoke(nameof(shootBullet), timeBetweenEachBulletShot);
@@ -176,7 +188,7 @@ public class GunClass : MonoBehaviour
     {
         allowInputToShoot = true;
         isReloading = false;
-        bulletsLeftInMagazine = gunMagazineSize;
+        CurrentAmmo = gunMagazineSize;
     }
 
     void DisableShootingWhenAmmoZero()

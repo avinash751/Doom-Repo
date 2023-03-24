@@ -4532,6 +4532,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 635312797, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+      propertyPath: m_Volume
+      value: 0.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534118525, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+      propertyPath: m_Volume
+      value: 0.083
+      objectReference: {fileID: 0}
     - target: {fileID: 74496650478700096, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
       propertyPath: m_Name
       value: PlayerFPS

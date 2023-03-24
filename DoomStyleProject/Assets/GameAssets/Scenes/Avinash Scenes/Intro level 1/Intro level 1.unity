@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20632
+  m_Name: pb_Mesh23880
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2495,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &675979990
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7169,9 +7169,21 @@ PrefabInstance:
       propertyPath: consumablePickUpAudioSource
       value: 
       objectReference: {fileID: 1349877596}
+    - target: {fileID: 635312797, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+      propertyPath: m_Volume
+      value: 0.088
+      objectReference: {fileID: 0}
     - target: {fileID: 1371668509, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534118525, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+      propertyPath: m_Volume
+      value: 0.088
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560534692, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1632970188, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
       propertyPath: m_LocalPosition.x
