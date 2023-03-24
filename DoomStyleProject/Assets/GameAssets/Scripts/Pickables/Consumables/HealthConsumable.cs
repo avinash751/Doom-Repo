@@ -11,6 +11,7 @@ public class HealthConsumable : Consumable
     private void Start()
     {
         player = FindObjectOfType<PlayerHealth>();
+        
     }
 
     public override void Consume(float destroyTimer, AudioSource source)
@@ -21,8 +22,8 @@ public class HealthConsumable : Consumable
 
     void AddHealthToPlayer()
     {
-        player.currentHealth += healthToAdd;
-        player.currentHealth = Mathf.Clamp(player.currentHealth, 0, player.MaxHealth.value);
+        player.CurrentHealth += healthToAdd;
         Debug.Log("health added yay");
+        // clamping was removed since it is now doing it in the get and set of object health
     }
 }

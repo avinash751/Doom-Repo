@@ -6,10 +6,7 @@ using System;
 
 public class PlayerHealth : ObjectHealth
 {
-    public static event Action PlayerHasDied;
-
-
-
+    [SerializeField] public static event Action PlayerHasDied;
     public override void DestroyObject()
     {
         base.DestroyObject();
@@ -17,10 +14,4 @@ public class PlayerHealth : ObjectHealth
     }
 }
 
-
-[CustomEditor(typeof(PlayerHealth))]
-public class PlayerHealthEditor : ObjectHealthEditor
-{ 
-
-}
 

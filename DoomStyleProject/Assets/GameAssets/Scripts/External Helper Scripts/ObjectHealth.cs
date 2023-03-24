@@ -3,72 +3,53 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEngine.GraphicsBuffer;
+using System;
 
-public class ObjectHealth : MonoBehaviour,IDamagable,IDestroyable
+
+public class ObjectHealth : MonoBehaviour, IDamagable, IDestroyable
 {
-    public Value  MaxHealth;
-    public int currentHealth;
+    public Value maxHealth;
+    [SerializeField] int currentHealth;
+
     [SerializeField] AudioSource damageTakenSound;
-    public  bool addMoreFunctionalityWhenDamageTaken;
-    public UnityEvent OnDamageTaken;
+    [SerializeField] public UnityEvent onDamageTaken;
+    [SerializeField] public Action healthHasBeenChnaged;
 
 
-    void Start()
+    public virtual int CurrentHealth
+    {
+        get { return currentHealth; }
+        set
+        {
+            currentHealth = value;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth.value);
+            healthHasBeenChnaged?.Invoke();
+            if (currentHealth <= 0)
+            {
+                DestroyObject();
+            }
+
+        }
+    }
+
+    private void Awake()
     {
        InitialisingValues();
     }
 
     public void TakeDamage(int Amount)
     {
-        currentHealth -= Amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, MaxHealth.value);
-
-        damageTakenSound?.Play();
-        OnDamageTaken?.Invoke();
-        
-        if(currentHealth <=0)
-        {
-            DestroyObject();
-        }
+        CurrentHealth -= Amount;
+        //damageTakenSound?.Play();
+        onDamageTaken?.Invoke();
     }
-
     public virtual void DestroyObject()
     {
- 
         Debug.Log("object is dead");
     }
-
-
     void InitialisingValues()
     {
         currentHealth = 0;
-        currentHealth = MaxHealth.value;
-    }
-
-    
-}
-[CustomEditor(typeof(ObjectHealth))]
-public class ObjectHealthEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        ObjectHealth health = (ObjectHealth)target;
-        EditorGUI.BeginChangeCheck();
-
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("MaxHealth"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("currentValue"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("damageTakenSound"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("addMoreFunctionalityWhenDamageTaken"));
-
-        if (health.addMoreFunctionalityWhenDamageTaken)
-        {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("OnDamageTaken"));
-        }
-
-        if (EditorGUI.EndChangeCheck())
-        {
-            serializedObject.ApplyModifiedProperties();
-        }
+        currentHealth = maxHealth.value;
     }
 }

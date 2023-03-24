@@ -13,14 +13,14 @@ public class VisulaBar: MonoBehaviour
     public virtual  void Start()
     {
         visualBarImage = visualBarImage ?? GetComponent<Image>();
-        visualBarImage.fillAmount = 0;
-
+        visualBarImage.fillAmount = currentValue/maxValue;
 
     }
     virtual public void SetNewCurrentValueAndMaxValueAndUpdateBar(float newCurrentValue, float newMaxValue)
     {
-        currentValue = newCurrentValue;
         maxValue = newMaxValue;
+        currentValue = newCurrentValue;
+       
         UpdateBarAndColor(currentValue / maxValue);
     }
     virtual public void DecreaseCircularBarValue(int value )
