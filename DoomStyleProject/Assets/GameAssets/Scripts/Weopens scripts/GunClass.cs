@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class GunClass : MonoBehaviour
 {
     [Header("Gun Shooting Stats")]
+    [SerializeField] int bulletDamage;
     [SerializeField] float timeBetweenInputShooting;
     [SerializeField] float gunBulletRange;
     [SerializeField] float bulletSpread;
@@ -121,7 +122,7 @@ public class GunClass : MonoBehaviour
     void shootBullet()
     {
         CurrentAmmo--;
-        ShootRaycast();
+        ShootRaycastAndCauseDamage();
         ShootMultipleBulletsAtOnceIfRequired();
         // bullets effects that spawn only after bullets are shot 
         SpawnGunEffectAtRayNormalThendestroy(FurnitureBulletImpactDecal, effectDestroyTimer, true);
@@ -136,7 +137,7 @@ public class GunClass : MonoBehaviour
         Invoke(nameof(shootBullet), timeBetweenEachBulletShot);
     }
 
-    void ShootRaycast()
+    void ShootRaycastAndCauseDamage()
     {
         Vector3 perShotBulletSpread = GetBulletSpreadDirection();
         Vector3 bulletDirection = Camera.main.transform.forward + perShotBulletSpread;
@@ -145,8 +146,15 @@ public class GunClass : MonoBehaviour
         if (Physics.Raycast(bulletRay, out objectHit, gunBulletRange))
         {
             nameOfObjectHit = objectHit.collider.name;
+            InflictDamage(objectHit);
             Debug.DrawRay(Camera.main.transform.position, bulletDirection * gunBulletRange, Color.green, 10f);
         }
+    }
+
+    void InflictDamage(RaycastHit hit)
+    {
+        hit.collider.TryGetComponent(out IDamagable damagable);
+        damagable?.TakeDamage(bulletDamage);
     }
 
     Vector3 GetBulletSpreadDirection()

@@ -21,7 +21,7 @@ public class SteeringBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         MoveTowardsTarget();
     }
@@ -46,7 +46,7 @@ public class SteeringBehaviour : MonoBehaviour
         rb.velocity += targetVelocity * Time.fixedDeltaTime;
     }
 
-    void TruncateVelocity(float maxSpeed)
+    protected void TruncateVelocity(float maxSpeed)
     {
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
     }
