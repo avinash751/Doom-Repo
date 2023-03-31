@@ -128,30 +128,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 4066162243694131294, guid: 297a4e79efa22904aa6c64fdc43ad9d3, type: 3}
   m_PrefabInstance: {fileID: 1476563614}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &201671050 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1738098494414438237, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+--- !u!82 &339310462 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 635312797, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
   m_PrefabInstance: {fileID: 1365582606}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &201671055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201671050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19024942773cae448e5f4e3faff8324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: {fileID: 11400000, guid: fa617a2dfa832dd4bb38f0cf8a9d1d14, type: 2}
-  currentHealth: 0
-  damageTakenSound: {fileID: 0}
-  addMoreFunctionalityWhenDamageTaken: 0
-  OnDamageTaken:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &391326230
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +234,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1494354977, guid: 297a4e79efa22904aa6c64fdc43ad9d3, type: 3}
   m_PrefabInstance: {fileID: 1476563614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &558556026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 74496650478700096, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+  m_PrefabInstance: {fileID: 1365582606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &558556027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558556026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19024942773cae448e5f4e3faff8324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: {fileID: 11400000, guid: fa617a2dfa832dd4bb38f0cf8a9d1d14, type: 2}
+  currentHealth: 0
+  damageTakenSound: {fileID: 339310462}
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &626118779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1010,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444949131}
   m_CullTransparentMesh: 1
+--- !u!1 &1449607045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107475891, guid: fd582a0bed6fb764687ec58c4e28da5e, type: 3}
+  m_PrefabInstance: {fileID: 1365582606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1449607050
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449607045}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 346cef3ccd22a8d45842fce792320cf2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &1476563614
 PrefabInstance:
   m_ObjectHideFlags: 0
