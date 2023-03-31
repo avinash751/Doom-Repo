@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using Random = UnityEngine.Random;
+
 
 
 public class ObjectHealth : MonoBehaviour, IDamagable, IDestroyable
@@ -28,7 +28,6 @@ public class ObjectHealth : MonoBehaviour, IDamagable, IDestroyable
             {
                 DestroyObject();
             }
-
         }
     }
 
@@ -40,7 +39,7 @@ public class ObjectHealth : MonoBehaviour, IDamagable, IDestroyable
     public void TakeDamage(int Amount)
     {
         CurrentHealth -= Amount;
-        //damageTakenSound?.Play();
+        PlayAnAudioSourceAndRandomizePitch(damageTakenSound);
         onDamageTaken?.Invoke();
     }
     public virtual void DestroyObject()
@@ -51,5 +50,25 @@ public class ObjectHealth : MonoBehaviour, IDamagable, IDestroyable
     {
         currentHealth = 0;
         currentHealth = maxHealth.value;
+    }
+
+    protected void PlayAnAudioSource(AudioSource audioSource)
+    {
+        if (audioSource == null) return;
+        audioSource.Play();
+    }
+
+    protected void PlayAnAudioSourceAndRandomizePitch(AudioSource audioSource)
+    {
+        if (audioSource == null) return;
+        audioSource.pitch = Random.Range(0.8f, 1.3f);
+        audioSource.Play();
+    }
+
+    protected  void spawnParticleSystem(ParticleSystem particle,float destroyTimer)
+    {
+        if (particle == null) return;
+        ParticleSystem particleDuplicate = Instantiate(particle, transform.position + Vector3.up, Quaternion.identity);
+        Destroy(particle,destroyTimer);
     }
 }
