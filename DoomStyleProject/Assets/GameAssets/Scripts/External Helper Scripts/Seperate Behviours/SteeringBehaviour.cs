@@ -16,7 +16,7 @@ public class SteeringBehaviour : MonoBehaviour
     public float distanceThreshold;
     private protected Rigidbody rb;
 
-    void Start()
+    public virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
     }

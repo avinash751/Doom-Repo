@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyFSM : MonoBehaviour
 {
-    Transform Player;
-    SteeringBehaviour SeekBehaviour;
-    RetreatingSteeringBehaviour RetreatBehaviour;
-    Wanderer wanderBehaviour;
-    AiShooting shootingBehaviour;
+     Transform Player;
+     [SerializeField]WayPoints SeekBehaviour;
+     [SerializeField]RetreatingSteeringBehaviour RetreatBehaviour;
+     [SerializeField]Wanderer wanderBehaviour;
+     [SerializeField]AiShooting shootingBehaviour;
 
     [SerializeField] float distanceToStartChasing;
     [SerializeField] float distanceToStartRetreating;
@@ -20,18 +20,18 @@ public class EnemyFSM : MonoBehaviour
     {
         Player = FindObjectOfType<FpsController>().GetComponent<Transform>();
 
-        SeekBehaviour = GetComponent<SteeringBehaviour>();
+      
         SeekBehaviour.target = Player;
         SeekBehaviour.enabled = false;
 
-        RetreatBehaviour = GetComponent<RetreatingSteeringBehaviour>();
+       
         RetreatBehaviour.target = Player;
         RetreatBehaviour.enabled = false;
 
-        wanderBehaviour = GetComponent<Wanderer>();
+   
         wanderBehaviour.enabled = false;
 
-        shootingBehaviour = GetComponent<AiShooting>();
+     
         shootingBehaviour.enabled = false;
 
     }
@@ -51,7 +51,6 @@ public class EnemyFSM : MonoBehaviour
 
     }
 
-
     void SeekTowardsPlayer()
     {
         bool CanSeekPlayer = DistanceFromPlayer <= distanceToStartChasing && DistanceFromPlayer > distanceToStartRetreating && DistanceFromPlayer > distanceToStartShooting;
@@ -60,7 +59,6 @@ public class EnemyFSM : MonoBehaviour
         {
             SetColorOfMesh(Color.red);
             SeekBehaviour.enabled = true;
-            SeekBehaviour.MoveTowardsTarget();
             return;
         }
         SeekBehaviour.enabled = false;
@@ -72,7 +70,6 @@ public class EnemyFSM : MonoBehaviour
         {
             SetColorOfMesh(Color.yellow);
             RetreatBehaviour.enabled = true;
-            RetreatBehaviour.MoveTowardsTarget();
             return;
         }
         RetreatBehaviour.enabled = false;
