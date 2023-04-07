@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1376945453576465386}
   - component: {fileID: 9156587916009135793}
   - component: {fileID: 8971941465144140403}
+  - component: {fileID: 1792630575522695239}
   m_Layer: 0
   m_Name: CloseRangeEnemy
   m_TagString: Untagged
@@ -141,3 +142,22 @@ MonoBehaviour:
       m_Calls: []
   explode: {fileID: 0}
   soundOnDestroy: {fileID: 0}
+--- !u!114 &1792630575522695239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443776864625372623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa80cce631cd104cb16a09468598b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfDamage: 50
+  checkWithTag: 1
+  collisionTag: Untagged
+  doMoreFunctionalityOncollsion: 0
+  DoExtraOnCollsion:
+    m_PersistentCalls:
+      m_Calls: []

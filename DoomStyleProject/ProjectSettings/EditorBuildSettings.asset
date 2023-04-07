@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameAssets/Scenes/Avinash Scenes/Intro level 1/Intro level 1.unity
     guid: 08d9ecd3271dae94dbfa8ec7d3f4fde9
+  - enabled: 1
+    path: Assets/GameAssets/Scenes/Avinash Scenes/avinash pick up.unity
+    guid: 3bd56e5d7db53a540a4961ae68947b45
+  - enabled: 1
+    path: Assets/GameAssets/Scenes/Dev Scenes/Level 1.unity
+    guid: 39901ffc83e250e489b6610a11414cfa
   m_configObjects: {}

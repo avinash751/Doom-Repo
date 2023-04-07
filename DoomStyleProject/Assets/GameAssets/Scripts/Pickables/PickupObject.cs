@@ -24,6 +24,7 @@ public class PickupObject : MonoBehaviour
 
     public Action<float, float> WeopenHasBeenSwitched;
     public Action newWeopenHasbeenEquipped;
+
     private void Start()
     {
         if (equipList.Count > 0)
@@ -34,6 +35,10 @@ public class PickupObject : MonoBehaviour
 
     private void Update()
     {
+        if (equipList.Count == 0)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SwitchWeapons(0);
@@ -51,9 +56,7 @@ public class PickupObject : MonoBehaviour
 
     void SwitchWeapons(int number)
     {
-        currentWeapon = number;
-
-        if (number < 0 || number >= equipList.Count)
+        if (equipList.Count == 0 || equipList.Count <= number)
         {
             return;
         }
@@ -89,6 +92,7 @@ public class PickupObject : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+
         IEquipable weapon = other.GetComponent<IEquipable>();
         Weapon gun = weapon as Weapon;
         if (weapon != null && !gun.hasPickedUp)
