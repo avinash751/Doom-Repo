@@ -63,7 +63,7 @@ public class AttackOnCollsionEditor : Editor
             //this gets index of collsion tag from the tag names array and set it to the variable index
             int index = Array.IndexOf(tagNames, collsionScript.collisionTag);
             //overrides the index variables based on whats chosen in the inspector
-            EditorGUILayout.Popup("Collision Tag", index, tagNames);
+            index = EditorGUILayout.Popup("Collision Tag", index, tagNames);
             //sets the tag based on the index variables which is then passed to the tag names array
             collsionScript.collisionTag = tagNames[index];
         }

@@ -2,7 +2,7 @@
 
 public interface IDestroyable 
 {
-    public  void DestroyObject();
+    public void DestroyObject();
    
     
 }

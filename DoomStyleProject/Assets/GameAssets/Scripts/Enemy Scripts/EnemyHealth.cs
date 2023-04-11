@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class EnemyHealth : ObjectHealth
 {
-    [SerializeField] ParticleSystem explode;
+    [SerializeField] GameObject explode;
     [SerializeField] AudioSource soundOnDestroy;
+    [SerializeField] float destroyTimer;
     public override void DestroyObject()
     {
-        spawnParticleSystem(explode,2);
+        SpawnObject(explode, destroyTimer);
         PlayAnAudioSourceAndRandomizePitch(soundOnDestroy);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        Destroy(gameObject,destroyTimer);
     }
 }
 

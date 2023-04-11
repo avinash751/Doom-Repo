@@ -43,6 +43,8 @@ public class SteeringBehaviour : MonoBehaviour
     public virtual void ApplyVelocityToTarget()
     {
         Vector3 targetVelocity = GetDirectionFromtarget() * speed;
+        transform.LookAt(target);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         rb.velocity += targetVelocity * Time.fixedDeltaTime;
     }
 
