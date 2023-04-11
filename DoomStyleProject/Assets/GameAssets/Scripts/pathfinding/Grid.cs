@@ -4,6 +4,7 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     public  Vector3 gridSize;
+    [SerializeField] Vector3 cellSize;
     public GameObject nodePrefab;
     [SerializeField] Node[] nodesArray;
     [SerializeField] int totalNodesInGrid;
@@ -26,7 +27,7 @@ public class Grid : MonoBehaviour
             {
                 int index = (int)(xNodes + zNodes * gridSize.x);
                 Vector3 gridSpawnPosition = new Vector3(xNodes, 0, zNodes);
-                Vector3 worldSpawnPosition = new Vector3(gridSpawnPosition.x * gridSize.x,0, gridSpawnPosition.z *gridSize.z) + transform.position + (gridSize/2);
+                Vector3 worldSpawnPosition = new Vector3(gridSpawnPosition.x * cellSize.x,0, gridSpawnPosition.z *cellSize.z) + transform.position + (cellSize/2);
                 nodesArray[index] = new Node(gridSpawnPosition, worldSpawnPosition);
                 nodesArray[index].debugNode = debugMode;
                 SpawnCubeAtNodeWorldPosition(worldSpawnPosition, index, nodesArray[index]);
@@ -43,7 +44,7 @@ public class Grid : MonoBehaviour
     {
         if (!debugMode) return;
         node.Mesh = Instantiate(nodePrefab, spawnPosition, Quaternion.identity);
-        node.Mesh.transform.localScale = gridSize- new Vector3(0.01f,0,0.01f);
+        node.Mesh.transform.localScale = cellSize- new Vector3(0.01f,0,0.01f);
         SetColorOfMesh(node,defaultGridColor);
     } 
     public void ClearWholeGridColor()
@@ -63,7 +64,7 @@ public class Grid : MonoBehaviour
 
     public Node GetNodeBasedOnWorldPosition(Vector3 Worldposition)
     {
-        Vector3 localPosition = new Vector3(Worldposition.x / gridSize.x, Worldposition.y, Worldposition.z / gridSize.z);
+        Vector3 localPosition = new Vector3(Worldposition.x / cellSize.x, Worldposition.y, Worldposition.z / cellSize.z);
         Vector3 intLocalPosition = new Vector3((int)localPosition.x, (int)localPosition.y, (int)localPosition.z);
         intLocalPosition.y = 0;
         return getNodeBasedOnLocalPosition(intLocalPosition);

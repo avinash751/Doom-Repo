@@ -44,7 +44,7 @@ public class GunClass : MonoBehaviour
     [Header("Weopen effects")]
     [SerializeField] GameObject gunCrossAir;
     [SerializeField] ParticleSystem gunMuzzleFlash;
-    [SerializeField] ParticleSystem normalBulletimpactVfx;
+    [SerializeField] ParticleSystem BulletimpactVfx;
     [SerializeField] GameObject FurnitureBulletImpactDecal;
     [SerializeField] float effectDestroyTimer;
 
@@ -126,7 +126,7 @@ public class GunClass : MonoBehaviour
         ShootMultipleBulletsAtOnceIfRequired();
         // bullets effects that spawn only after bullets are shot 
         SpawnGunEffectAtRayNormalThendestroy(FurnitureBulletImpactDecal, effectDestroyTimer, true);
-        SpawnGunEffectAtRayNormalThendestroy(normalBulletimpactVfx.gameObject, effectDestroyTimer, false);
+        SpawnGunEffectAtRayNormalThendestroy(BulletimpactVfx.gameObject, effectDestroyTimer, false);
     }
     void ShootMultipleBulletsAtOnceIfRequired()
     {
@@ -153,6 +153,7 @@ public class GunClass : MonoBehaviour
 
     void InflictDamage(RaycastHit hit)
     {
+        if (hit.collider.TryGetComponent(out PlayerHealth player)) return;       
         hit.collider.TryGetComponent(out IDamagable damagable);
         damagable?.TakeDamage(bulletDamage);
     }
@@ -218,7 +219,8 @@ public class GunClass : MonoBehaviour
 
     void SpawnGunEffectAtRayNormalThendestroy(GameObject effect, float timer, bool parenting)
     {
-        if (objectHit.collider == null) return;
+        if (objectHit.collider == null || objectHit.collider.TryGetComponent(out PlayerHealth player))return;
+
         var decalDuplicate = Instantiate(effect, objectHit.point, Quaternion.LookRotation(objectHit.normal));
         Vector3 decalOffset = decalDuplicate.transform.forward / 1000;
         decalDuplicate.transform.position += decalOffset;

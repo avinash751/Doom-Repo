@@ -71,4 +71,10 @@ public class ObjectHealth : MonoBehaviour, IDamagable, IDestroyable
         ParticleSystem particleDuplicate = Instantiate(particle, transform.position + Vector3.up, Quaternion.identity);
         Destroy(particle,destroyTimer);
     }
+    protected void SpawnObject (GameObject objectToSpawn, float destroyTimer)
+    {
+        if (objectToSpawn == null) return;
+        GameObject objectToSpawnDuplicate = Instantiate(objectToSpawn, transform.position, transform.rotation);
+        Destroy(objectToSpawnDuplicate,destroyTimer);
+    }
 }

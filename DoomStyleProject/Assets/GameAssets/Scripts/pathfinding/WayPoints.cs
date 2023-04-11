@@ -33,6 +33,8 @@ public class WayPoints : SteeringBehaviour
         {
 
             Vector3 targetVelocity = GetDirectionTowardsFinalPathFromAstar() * speed;
+            transform.LookAt(target);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             rb.velocity += targetVelocity * Time.fixedDeltaTime;
             IncrementPathIndexBasedOnDistance();
 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MaxMeleeEnemyHealth
   m_EditorClassIdentifier: 
   Valuename: 
-  value: 100
+  value: 3
