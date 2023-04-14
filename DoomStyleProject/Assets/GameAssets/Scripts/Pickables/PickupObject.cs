@@ -15,6 +15,7 @@ public class PickupObject : MonoBehaviour
     [Header("Weapon Offsets")]
     [SerializeField] Vector3 pistolOffset;
     [SerializeField] Vector3 shotgunOffset;
+    [SerializeField] Vector3 superShotgunOffset;
 
     [HideInInspector] public int currentWeapon;
 
@@ -88,6 +89,10 @@ public class PickupObject : MonoBehaviour
         if (currentWeapon == 1 && weaponActive)
         {
             equipList[currentWeapon].transform.localPosition = shotgunOffset;
+        }
+        if (currentWeapon == 2 && weaponActive)
+        {
+            equipList[currentWeapon].transform.localPosition = superShotgunOffset;
         }
     }
     private void OnTriggerEnter(Collider other)
