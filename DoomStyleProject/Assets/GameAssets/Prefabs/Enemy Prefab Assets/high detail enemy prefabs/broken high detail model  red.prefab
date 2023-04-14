@@ -4155,7 +4155,7 @@ GameObject:
   - component: {fileID: 7206684925450140915}
   - component: {fileID: 1795253900033189987}
   m_Layer: 0
-  m_Name: broken high detail model   1
+  m_Name: broken high detail model  red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

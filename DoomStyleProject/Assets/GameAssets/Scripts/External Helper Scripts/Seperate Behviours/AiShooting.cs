@@ -1,12 +1,21 @@
 using UnityEngine;
 
+
 public class AiShooting : MonoBehaviour
 {
     [SerializeField] float fireRate = 0.5f;
     [SerializeField] float range = 100f;
     [SerializeField] bool bulletFired;
+    CameraShake cameraShake;
 
-
+    private void Start()
+    {
+        
+    }
+    private void OnEnable()
+    {
+      cameraShake = GetComponent<CameraShake>();
+    }
 
 
     public void ShootObject(int bulletDamage)
@@ -23,11 +32,12 @@ public class AiShooting : MonoBehaviour
 
     private void InflictDamage(RaycastHit hit, int damage)
     {
-        IDamagable damageableObject = hit.collider.GetComponent<IDamagable>();
-        if (damageableObject != null)
+        if (!hit.collider.TryGetComponent(out IDamagable damageableObject)) return;
+        if (hit.collider.TryGetComponent(out FpsController player ))
         {
             Debug.Log("player has taken damage");
             damageableObject.TakeDamage(damage);
+            player.gameObject.GetComponent<CameraShake>().EnableCamersShake(true,false);
         }
     }
 

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd6eb596af8f6d489d8403253ccffa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SeekBehaviour: {fileID: 2012286428378288778}
+  SeekBehaviour: {fileID: 2012286427077846028}
   RetreatBehaviour: {fileID: 2012286428378288778}
   wanderBehaviour: {fileID: 2012286428378288779}
   shootingBehaviour: {fileID: 9150533305106710938}
@@ -139,6 +139,7 @@ MonoBehaviour:
   distanceToStartShooting: 18
   bulletDamage: 10
   DistanceFromPlayer: 0
+  skinnedMesh: 0
 --- !u!114 &2012286427077846028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,14 +189,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012286428378288829}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0067f42c3e18ff84d9f7bcf51bf48945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wanderDuration: 3
   restDuration: 2
-  wanderSpeed: 8
+  wanderSpeed: 20
 --- !u!114 &9150533305106710938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,3 +232,4 @@ MonoBehaviour:
       m_Calls: []
   explode: {fileID: 0}
   soundOnDestroy: {fileID: 0}
+  destroyTimer: 0

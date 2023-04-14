@@ -14,6 +14,7 @@ public class AttackOnCollision : MonoBehaviour
     public string collisionTag;
     public bool doMoreFunctionalityOncollsion;
     public UnityEvent DoExtraOnCollsion;
+    bool collided;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<IDamagable>() != null)
@@ -30,11 +31,28 @@ public class AttackOnCollision : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<IDamagable>() != null)
+        {
+            if (collision.gameObject.CompareTag(collisionTag) && checkWithTag)
+            {
+                collided = false;
+            }
+            else if (!checkWithTag)
+            {
+                collided = false;
+            }
+
+        }
+    }
+
     public void Attack(GameObject collsionObject)
     {
         DoExtraOnCollsion.Invoke();
         IDamagable DamagableObject = collsionObject.GetComponent<IDamagable>();
         DamagableObject.TakeDamage(amountOfDamage);
+        collided = true;
     }
 }
 

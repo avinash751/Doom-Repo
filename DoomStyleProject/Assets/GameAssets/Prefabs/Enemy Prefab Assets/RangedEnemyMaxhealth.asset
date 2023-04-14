@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RangedEnemyMaxhealth
   m_EditorClassIdentifier: 
   Valuename: 
-  value: 50
+  value: 2

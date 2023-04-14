@@ -1860,6 +1860,7 @@ GameObject:
   - component: {fileID: 1935195324}
   - component: {fileID: 101103268}
   - component: {fileID: 968184325}
+  - component: {fileID: 3706041499080623657}
   m_Layer: 0
   m_Name: PlayerFPS
   m_TagString: Player
@@ -2008,6 +2009,24 @@ MonoBehaviour:
   lowHealthSound: {fileID: 2006002673}
   meduimHealthSoundVolume: 1
   lowHealthSoundVolume: 1
+--- !u!114 &3706041499080623657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74496650478700096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1955761071819fc4da484776ad9a6f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraToShake: {fileID: 3879762773530722283}
+  frequency: 30
+  amplitude: 0.5
+  duration: 0.15
+  cameraShakeEnabled: 0
+  isInfinite: 0
 --- !u!1 &1738098494414438237
 GameObject:
   m_ObjectHideFlags: 0
