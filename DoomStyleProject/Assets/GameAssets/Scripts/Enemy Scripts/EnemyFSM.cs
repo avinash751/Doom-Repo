@@ -15,6 +15,7 @@ public class EnemyFSM : MonoBehaviour
     [SerializeField] float distanceToStartShooting;
     [SerializeField] int bulletDamage;
     [SerializeField] float DistanceFromPlayer;
+    [SerializeField] bool skinnedMesh;
 
     void Start()
     {
@@ -57,7 +58,7 @@ public class EnemyFSM : MonoBehaviour
 
         if (CanSeekPlayer)
         {
-            SetColorOfMesh(Color.red);
+            SetColorOfMesh(Color.red,skinnedMesh);
             SeekBehaviour.enabled = true;
             return;
         }
@@ -68,7 +69,7 @@ public class EnemyFSM : MonoBehaviour
     {
         if (DistanceFromPlayer <= distanceToStartRetreating)
         {
-            SetColorOfMesh(Color.yellow);
+            SetColorOfMesh(Color.yellow, skinnedMesh);
             RetreatBehaviour.enabled = true;
             return;
         }
@@ -79,7 +80,7 @@ public class EnemyFSM : MonoBehaviour
     {
         if (DistanceFromPlayer > distanceToStartChasing)
         {
-            SetColorOfMesh(Color.white);
+            SetColorOfMesh(Color.blue, skinnedMesh);
             wanderBehaviour.enabled = true;
             return;
         }
@@ -92,20 +93,24 @@ public class EnemyFSM : MonoBehaviour
 
         if (CanShoot)
         {
-            SetColorOfMesh(Color.black);
+            SetColorOfMesh(Color.magenta, skinnedMesh);
             Debug.Log("shooting started");
             transform.LookAt(Player);
             shootingBehaviour.ShootObject(bulletDamage);
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             return;
         }
     }
 
-    void SetColorOfMesh(Color color)
+    void SetColorOfMesh(Color color, bool skinnedMesh)
     {
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        if(skinnedMesh)
+        {
+            SkinnedMeshRenderer skinnedMeshRenderer = transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
+            skinnedMeshRenderer.material.color = color;
+            return;
+        }
+        MeshRenderer meshRenderer = transform.GetComponent<MeshRenderer>();
         meshRenderer.material.color = color;
     }
-
-
-
 }
