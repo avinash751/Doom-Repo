@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class OnDelayPlaySound : MonoBehaviour
 {
-    [Tooltip("this delay time only applies when sound is played at start ")][SerializeField]
+    [Tooltip("this delayToFadeIn time only applies when sound is played at start ")][SerializeField]
     float delayTimOnStart;
     [SerializeField] bool playOnstart;
     [SerializeField] AudioSource audioSource;

@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/GameAssets/Scenes/Main Game Scenes/Intro level 1/Intro level 1.unity
     guid: 08d9ecd3271dae94dbfa8ec7d3f4fde9
-  - enabled: 1
+  - enabled: 0
     path: Assets/GameAssets/Scenes/Dev Scenes/Level_Interation_1 1.unity
     guid: 22a53fa82073f0c4397021ae01eed893
-  - enabled: 1
+  - enabled: 0
     path: Assets/GameAssets/Scenes/Dev Scenes/Level_Interation_2.unity
     guid: 04cd240255821634e8938b950f2f2519
   - enabled: 1
