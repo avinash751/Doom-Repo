@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa80cce631cd104cb16a09468598b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfDamage: 10
+  amountOfDamage: 2
   checkWithTag: 1
   collisionTag: Player
   doMoreFunctionalityOncollsion: 0
