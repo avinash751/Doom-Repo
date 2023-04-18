@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f8be88653c0352449593598dcd79904, type: 3}
-  m_Name: MaxMeleeEnemyHealth
+  m_Name: HighDetailMaxMeleeEnemyHealth
   m_EditorClassIdentifier: 
   Valuename: 
   value: 3
