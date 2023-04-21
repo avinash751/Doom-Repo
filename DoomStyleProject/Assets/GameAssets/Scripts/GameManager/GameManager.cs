@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour
     bool playerNotDied;
     private void Start()
     {
+        // this is an event to call gameover function when player health is 0
         PlayerHealth.PlayerHasDied += GameOverMenu;
         SetMouseCursor(CursorLockMode.Locked, true);
-        Time.timeScale = 1f;
+        SetTimeScale(1f);
     }
     void Update()
     {
@@ -27,27 +28,23 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) && !paused && !playerNotDied)
         {
-            paused = true;
-            currentGameBehaviour = new PauseGameBehaviour(0);
-            currentGameBehaviour.RunBehaviour(true, pauseMenu);
-            SetMouseCursor(CursorLockMode.None, true);
+            EnablePauseMenu(0);
+            
         }
         else if(Input.GetKeyDown(KeyCode.Escape) && paused && !playerNotDied)
         {
-            paused = false;
-            currentGameBehaviour = new PauseGameBehaviour(1);
-            currentGameBehaviour.RunBehaviour(false, pauseMenu);
-            SetMouseCursor(CursorLockMode.Locked, false);
+            EnablePauseMenu(1);
         }
     }
 
     void GameOverMenu()
     {
         playerNotDied = true;
-        currentGameBehaviour = new GameOverBehaviour(0f);
-        currentGameBehaviour.RunBehaviour(enabled, gameOverMenu);
+        currentGameBehaviour = new GameOverBehaviour(0);
+        currentGameBehaviour.RunBehaviour(true, gameOverMenu);
         SetMouseCursor(CursorLockMode.None, true);
         Debug.Log("LOL YOU DIED NOOOB");
+        PlayerHealth.PlayerHasDied -= GameOverMenu;
     }
     public void ExitGame()
     {
@@ -63,4 +60,30 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = cursorState;
         Cursor.visible = enabled;
     }
+
+    public void   SetTimeScale(float timeScale)
+    {
+        Time.timeScale = timeScale;
+    }
+
+    public void EnablePauseMenu(float timeScale)
+    {
+        if(timeScale ==0)
+        {
+            paused = true;
+            currentGameBehaviour = new PauseGameBehaviour(timeScale);
+            currentGameBehaviour.RunBehaviour(true, pauseMenu);
+            SetMouseCursor(CursorLockMode.None, true);
+            return;
+        }
+        paused = false;
+        currentGameBehaviour = new PauseGameBehaviour(timeScale);
+        currentGameBehaviour.RunBehaviour(false, pauseMenu);
+        SetMouseCursor(CursorLockMode.Locked,false);
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
 }

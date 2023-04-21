@@ -1686,7 +1686,7 @@ GameObject:
   - component: {fileID: 7057214956400078768}
   - component: {fileID: 7057214956400078769}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameManager duplicate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
