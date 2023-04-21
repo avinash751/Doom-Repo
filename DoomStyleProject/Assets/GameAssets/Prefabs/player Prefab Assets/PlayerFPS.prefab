@@ -2003,8 +2003,8 @@ MonoBehaviour:
   lerpOutDuration: 1
   meduimHealthVolume: {fileID: 2000334005}
   lowHealthVolume: {fileID: 1906999816}
-  meduimHealthThreshold: 50
-  lowHealthThreshold: 20
+  meduimHealthThreshold: 10
+  lowHealthThreshold: 6
   meduimHealthSound: {fileID: 1521042456}
   lowHealthSound: {fileID: 2006002673}
   meduimHealthSoundVolume: 1
