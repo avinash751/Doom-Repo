@@ -8807,6 +8807,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1878874574}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &1316480661
 Transform:
   m_ObjectHideFlags: 0
@@ -9154,6 +9166,14 @@ PrefabInstance:
     - target: {fileID: 9149448062382711044, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
       propertyPath: bulletDamage
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149448062382711044, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
+      propertyPath: bulletSpread
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149448062382711044, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
+      propertyPath: gunBulletRange
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9149448062382711044, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
       propertyPath: BulletimpactVfx
@@ -12025,7 +12045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1878874575
 Transform:
   m_ObjectHideFlags: 0
