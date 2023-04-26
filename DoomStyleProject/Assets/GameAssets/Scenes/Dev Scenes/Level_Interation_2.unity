@@ -300,6 +300,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 279543389}
     m_Modifications:
+    - target: {fileID: 100208591, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
+      propertyPath: ammoToAdd
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3604886937279855082, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -609,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066162242082339329, guid: 297a4e79efa22904aa6c64fdc43ad9d3, type: 3}
       propertyPath: bulletDamage
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4066162242082339329, guid: 297a4e79efa22904aa6c64fdc43ad9d3, type: 3}
       propertyPath: bulletSpread
@@ -2660,6 +2664,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 279543389}
     m_Modifications:
+    - target: {fileID: 100208591, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
+      propertyPath: ammoToAdd
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3604886937279855082, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4188,6 +4196,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 279543389}
     m_Modifications:
+    - target: {fileID: 100208591, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
+      propertyPath: ammoToAdd
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3604886937279855082, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -9242,7 +9254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9149448062382711044, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
       propertyPath: bulletDamage
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9149448062382711044, guid: 446e87c17a691f04ea3797e1c54cfd7e, type: 3}
       propertyPath: bulletSpread
@@ -10770,6 +10782,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 279543389}
     m_Modifications:
+    - target: {fileID: 100208591, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
+      propertyPath: ammoToAdd
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3604886937279855082, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -13722,6 +13738,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 279543389}
     m_Modifications:
+    - target: {fileID: 100208591, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
+      propertyPath: ammoToAdd
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3604886937279855082, guid: 6df72f9c165adba4784bb7e9a1865a1c, type: 3}
       propertyPath: m_RootOrder
       value: 2

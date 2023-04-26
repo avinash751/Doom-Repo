@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 6
+  speed: 8
   maxSpeed: 10
   slowDownAtTarget: 0
   slowDownMultiplier: 0
