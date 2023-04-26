@@ -39,7 +39,7 @@ public class CameraShake : MonoBehaviour
         EnableCamersShake(false, false);
     }
 
-    void InfiniteCameraShake()
+    public void InfiniteCameraShake()
     {
         if (cameraShakeEnabled && isInfinite)
         {

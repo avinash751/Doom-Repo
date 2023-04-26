@@ -11287,6 +11287,22 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 
       objectReference: {fileID: 11400000, guid: 635beb2867c7aec4180944ec7f8e2805, type: 2}
+    - target: {fileID: 2764862856101501485, guid: d57550172fa424a47b2f93a5cfc842f8, type: 3}
+      propertyPath: onDamageTaken.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764862856101501485, guid: d57550172fa424a47b2f93a5cfc842f8, type: 3}
+      propertyPath: onDamageTaken.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764862856101501485, guid: d57550172fa424a47b2f93a5cfc842f8, type: 3}
+      propertyPath: onDamageTaken.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1153628581}
+    - target: {fileID: 2764862856101501485, guid: d57550172fa424a47b2f93a5cfc842f8, type: 3}
+      propertyPath: onDamageTaken.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2764862856101501487, guid: d57550172fa424a47b2f93a5cfc842f8, type: 3}
       propertyPath: target
       value: 
@@ -11314,6 +11330,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2764862856101501480, guid: d57550172fa424a47b2f93a5cfc842f8, type: 3}
   m_PrefabInstance: {fileID: 1153628579}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1153628581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2764862856101501485, guid: d57550172fa424a47b2f93a5cfc842f8, type: 3}
+  m_PrefabInstance: {fileID: 1153628579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866295187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db875330cc8099f43bc091db7a4bef64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1154947972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7443653214201397372, guid: e1ff1d8d5ca1e744e9735e8cf3e51fb4, type: 3}
