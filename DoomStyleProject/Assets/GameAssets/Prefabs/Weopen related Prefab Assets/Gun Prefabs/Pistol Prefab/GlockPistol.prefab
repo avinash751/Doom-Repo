@@ -1697,8 +1697,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a37f44cbf8c2a7443a3c361efa2f233a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.05
+  m_Pitch: 0.06
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1988,6 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b8dacabbecd1341b08e462523aae94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDamage: 0
   timeBetweenInputShooting: 0.2
   gunBulletRange: 15
   bulletSpread: 0.05
@@ -2008,7 +2009,7 @@ MonoBehaviour:
   shootAnimation: {fileID: 7400000, guid: d34b4dd27ff9e5942b1871319d0f0db7, type: 2}
   gunCrossAir: {fileID: 9149448061117772828}
   gunMuzzleFlash: {fileID: 8951080440369279624}
-  normalBulletimpactVfx: {fileID: 3719586107335905490, guid: e9c663ddd4e4808408b70cc6c5e1003d, type: 3}
+  BulletimpactVfx: {fileID: 0}
   FurnitureBulletImpactDecal: {fileID: 2840573034989318555, guid: ef79d918259ab5f4692977f135697d28, type: 3}
   effectDestroyTimer: 5
   shootSound: {fileID: 9149448061780574137}

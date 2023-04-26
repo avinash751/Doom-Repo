@@ -23,6 +23,8 @@ public class VisualHealthSystem : DynamicPostProcessing
     [SerializeField] float meduimHealthSoundVolume;
     [SerializeField] float lowHealthSoundVolume;
 
+    [SerializeField] float lowHealthpitch;
+
     bool meduimHealthSoundPlayed;
     bool lowHealthSoundPlayed;
 
@@ -63,7 +65,7 @@ public class VisualHealthSystem : DynamicPostProcessing
         {
             LerpBetweenTwoWeightsForAVolume(lowHealthVolume, 1, lerpInDuration);
             PlayAnAudioSource(lowHealthSound, ref lowHealthSoundPlayed);
-            FadeAnAudioSourceVolumeAndPitch(lowHealthSound, lowHealthSoundVolume, 1, lerpInDuration);
+            FadeAnAudioSourceVolumeAndPitch(lowHealthSound, lowHealthSoundVolume, lowHealthpitch, lerpInDuration);
             return;
         }
         LerpBetweenTwoWeightsForAVolume(lowHealthVolume, 0, lerpInDuration);

@@ -326,9 +326,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bb2e2714f962491428dcb0b38598b251, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ec8d2ef2d47b4f847a7a86d59a2234ba, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -800,9 +800,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 78542e76d4c24a745bc1bb599adb55df, type: 3}
+  m_audioClip: {fileID: 8300000, guid: be2bafc5ed322964db789cce1052fbd9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.501
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -927,9 +927,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 71528c4953c6b1344950ac25d843c701, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1512,10 +1512,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: be2bafc5ed322964db789cce1052fbd9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 03ac61c16678d0143a8aed88226d7e3a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.1
+  m_Pitch: 0.5
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -2009,6 +2009,7 @@ MonoBehaviour:
   lowHealthSound: {fileID: 2006002673}
   meduimHealthSoundVolume: 1
   lowHealthSoundVolume: 1
+  lowHealthpitch: 0.5
 --- !u!114 &3706041499080623657
 MonoBehaviour:
   m_ObjectHideFlags: 0
