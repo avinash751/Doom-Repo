@@ -23,7 +23,6 @@ public class HealthConsumable : Consumable
     void AddHealthToPlayer()
     {
         player.CurrentHealth += healthToAdd;
-        Debug.Log("health added yay");
         // clamping was removed since it is now doing it in the get and set of object health
     }
 }

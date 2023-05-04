@@ -9,9 +9,13 @@ Shader "Unlit/ScrollingShader"
 	}
 		SubShader
 	{
-		Tags { "RenderType" = "Opaque" }
+		Tags { "RenderType" = "Transparent" 
+		"Queue" = "Transparent"}
 		LOD 100
 
+		Cull Back
+		
+		Blend One One
 		Pass
 		{
 			CGPROGRAM
@@ -21,6 +25,7 @@ Shader "Unlit/ScrollingShader"
 			#pragma multi_compile_fog
 
 			#include "UnityCG.cginc"
+			#define TAU 6.2831855
 
 			struct appdata
 			{
@@ -42,6 +47,7 @@ Shader "Unlit/ScrollingShader"
 			float _ScrollingSpeed;
 			float4 _MyColor;
 			float4 _AmbientColor;
+			float _WaveAmp;
 
 			v2f vert(appdata v)
 			{
@@ -52,21 +58,26 @@ Shader "Unlit/ScrollingShader"
 				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 			}
-
 			fixed4 frag(v2f i) : SV_Target
 			{
 				i.uv.r += _Time.y * _ScrollingSpeed;
 				float3 NdotL = max(dot(_WorldSpaceLightPos0, i.worldNormal),0);
 				float3 ClampedNdotL = max(NdotL, 0);
-		
+
 				fixed4 col = tex2D(_MainTex, i.uv);
 				fixed4 finalColor = _MyColor * _AmbientColor;
 
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
-				return float4(ClampedNdotL.rgb, 1) * col * finalColor;
-		}
+				float xOffset = i.uv.y;
+				float2 centerUV = i.uv * 2 - 1; 
+				float center = length(centerUV);
+				float wave = cos((center + xOffset * TAU * 1));
+				float ripple = cos((wave - _Time.x * 0.1) * TAU * 2);
+				return float4(ClampedNdotL, 1) * col * (ripple * 10) * finalColor;
+			}
+
 		ENDCG
-	}
+		}
 	}
 }
